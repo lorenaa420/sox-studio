@@ -205,6 +205,613 @@
             color: #0066ff;
         }
 
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .feat-card {
+            background-color: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.04);
+            padding: 35px 25px;
+            border-radius: 12px;
+        }
+
+        .feat-card h3 {
+            font-size: 19px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .feat-card p {
+            color: #94a3b8;
+            font-size: 14.5px;
+        }
+
+        /* --- PORTFOLIO --- */
+        .portfolio-section {
+            padding: 100px 0;
+            background-color: #080c16;
+            border-top: 1px solid rgba(255,255,255,0.02);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .project-featured {
+            background: linear-gradient(145deg, rgba(0, 102, 255, 0.05) 0%, rgba(5, 8, 17, 0.6) 100%);
+            border: 2px solid #0066ff;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.15);
+            position: relative;
+        }
+
+        .project-featured::before {
+            content: 'AKTIVAN PROJEKT';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #0066ff;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 30px;
+            z-index: 10;
+        }
+
+        .project-concept {
+            background-color: rgba(255,255,255,0.01);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            opacity: 0.75;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-body {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .project-body h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .project-body p {
+            color: #94a3b8;
+            font-size: 14.5px;
+            margin-bottom: 25px;
+        }
+
+        .tag-concept {
+            font-size: 11px;
+            background-color: rgba(255,255,255,0.05);
+            color: #94a3b8;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        /* --- CJENIK --- */
+        .pricing-section {
+            padding: 100px 0;
+            border-top: 1px solid rgba(255,255,255,0.02);
+        }
+
+        .price-card {
+            background-color: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .price-card.popular {
+            border: 1px solid #0066ff;
+            background-color: rgba(0, 102, 255, 0.02);
+        }
+
+        .price-card h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .price-num {
+            font-size: 34px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .price-num span {
+            font-size: 15px;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .price-features {
+            list-style: none;
+            color: #cbd5e1;
+            font-size: 14.5px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .price-features li {
+            margin-bottom: 12px;
+        }
+
+        /* --- KONTAKT --- */
+        .contact-section {
+            padding: 100px 0;
+            text-align: center;
+            background-color: #080c16;
+            border-top: 1px solid rgba(255,255,255,0.02);
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            color: #475569;
+            font-size: 14px;
+        }
+
+        /* --- DESKTOP RASPODJELA (Računalo) --- */
+        @media (min-width: 992px) {
+            .hero h1 { font-size: 56px; }
+            .sec-title { font-size: 36px; }
+            
+            .menu-toggle {
+                display: none;
+            }
+
+            .nav-links {
+                position: static;
+                flex-direction: row;
+                width: auto;
+                height: auto;
+                background-color: transparent;
+                border-left: none;
+                padding: 0;
+                gap: 25px;
+                transform: translateX(0); /* Poništavamo skrivanje na desktopu */
+            }
+
+            header a {
+                font-size: 14px;
+            }
+
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .project-featured {
+                grid-column: span 2;
+                flex-direction: row;
+            }
+
+            .project-featured .project-image {
+                width: 50%;
+                height: 340px;
+            }
+
+            .project-featured .project-body {
+                width: 50%;
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGACIJA -->
+    <header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">Sox<span>Studio</span></div>
+                
+                <button class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="nav-links" id="nav-menu">
+                    <a href="#usluge">Usluge</a>
+                    <a href="#radovi">Radovi</a>
+                    <a href="#cijene">Cijene</a>
+                    <a href="#kontakt">Kontakt</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SEKCIJA -->
+    <section class="hero">
+        <div class="container">
+            <h1>Izrada Web Stranica Koje <span>Donose Klijente</span></h1>
+            <p>Kreiramo moderna, brza i responzivna web rješenja prilagođena obrtima i malim poduzetnicima. Istaknite se na Googleu i privucite nove kupce.</p>
+            <a href="#kontakt" class="btn-main">Započnimo Projekt</a>
+        </div>
+    </section>
+
+    <!-- SEKCIJA: USLUGE -->
+    <section id="usluge" class="features-section">
+        <div class="container">
+            <h2 class="sec-title">Što Sve Dobivate <span>U Paketu?</span></h2>
+            <div class="grid-3">
+                <div class="feat-card">
+                    <h3>📱 Savršeno za Mobitele</h3>
+                    <p>Više od 70% vaših klijenata vas traži preko mobitela. Sve naše stranice su 100% prilagođene pametnim telefonima, brze i pregledne.</p>
+                </div>
+                <div class="feat-card">
+                    <h3>🚀 Google SEO Optimizacija</h3>
+                    <p>Postavljamo ispravne naslove, meta opise i tehničku strukturu kako bi vaša web stranica lakše skočila na prvu stranicu Google tražilice.</p>
+                </div>
+                <div class="feat-card">
+                    <h3>📍 Povezivanje s Google Mapom</h3>
+                    <p>Spajamo vaš web s Google Business profilom (Google kartu) kako bi vas klijenti iz vaše okolice odmah pronašli i nazvali.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SEKCIJA -->
+    <section id="radovi" class="portfolio-section">
+        <div class="container">
+            <h2 class="sec-title">Naši Istaknuti <span>Radovi</span></h2>
+            <div class="portfolio-grid">
+
+                <!-- PRAVI PROJEKT -->
+                <div class="project-featured">
+                    <div class="project-image" style="background-image: url('slike/roletarski-servis.jpg');"></div>
+                    <div class="project-body">
+                        <div>
+                            <h3 style="font-size: 24px; font-weight: 800;">Roletarski servis D.J.</h3>
+                            <p>Kompletna izrada profesionalne web stranice. Implementiran je responzivni dizajn za mobilne uređaje, brza kontakt forma za klijente i napredna SEO optimizacija za pozicioniranje.</p>
+                        </div>
+                        <a href="https://roletarski-servis-dj.hr/" target="_blank" class="btn-main" style="text-align: center;">Pogledajte web stranicu &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- KONCEPT 1 -->
+                <div class="project-concept">
+                    <div class="project-image" style="background-image: url('slike/volt-mreza.jpg');"></div>
+                    <div class="project-body">
+                        <div>
+                            <span class="tag-concept">Dizajn Koncept</span>
+                            <h3>Volt Mreža — Elektroinstalacije</h3>
+                            <p>Idejno vizualno rješenje weba za obrtničke usluge s fokusom na hitne intervencije, brzi pregled usluga i trenutačne pozive putem mobitela.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KONCEPT 2 -->
+                <div class="project-concept">
+                    <div class="project-image" style="background-image: url('slike/kvadrat-struktura.jpg');"></div>
+                    <div class="project-body">
+                        <div>
+                            <span class="tag-concept">Dizajn Koncept</span>
+                            <h3>Kvadrat Struktura — Adaptacije</h3>
+                            <p>Koncept weba za završne građevinske radove s asimetričnom strukturom i modernom rešetkastom galerijom za prezentaciju izvedenih projekata.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CJENIK SEKCIJA -->
+    <section id="cijene" class="pricing-section">
+        <div class="container">
+            <h2 class="sec-title">Transparentne <span>Cijene</span></h2>
+            <div class="grid-3">
+                <div class="price-card">
+                    <h4>Start Web</h4>
+                    <div class="price-num">250€ <span>/ jednokratno</span></div>
+                    <ul class="price-features">
+                        <li>✓ One-page stranica</li>
+                        <li>✓ Prilagođeno za mobitele</li>
+                        <li>✓ Google karta i kontakt forma</li>
+                        <li>✓ Rok izrade: 5-7 dana</li>
+                    </ul>
+                    <a href="#kontakt" class="btn-main" style="background-color: transparent; border: 1px solid rgba(255,255,255,0.2); box-shadow: none;">Odaberi Paket</a>
+                </div>
+
+                <div class="price-card popular">
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background-color: #0066ff; color: #fff; font-size: 11px; font-weight: 800; padding: 3px 12px; border-radius: 20px;">NAJPOPULARNIJE</div>
+                    <h4>Obrt Plus</h4>
+                    <div class="price-num">450€ <span>/ jednokratno</span></div>
+                    <ul class="price-features">
+                        <li>✓ Do 5 podstranica</li>
+                        <li>✓ Napredna SEO optimizacija</li>
+                        <li>✓ Galerija radova / projekata</li>
+                        <li>✓ Rok izrade: 10-14 dana</li>
+                    </ul>
+                    <a href="#kontakt" class="btn-main">Odaberi Paket</a>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAKT SEKCIJA -->
+    <section id="kontakt" class="contact-section">
+        <div class="container">
+            <h2>Trebate web stranicu?</h2>
+            <p style="color: #94a3b8; margin-bottom: 40px;">Javite se i dogovorite besplatne konzultacije za svoj obrt ili tvrtku.</p>
+            <a href="mailto: sox.contactinfo@gmail.com" class="btn-main" style="background-color: transparent; border: 2px solid #0066ff; box-shadow: none;">Pošaljite nam e-mail</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Sox Studio. Sva prava pridržana.</p>
+        </div>
+    </footer>
+
+    <!-- SKRIPTA ZA IZBORNIK -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('#nav-menu a');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sox Studio | Izrada Web Stranica za Obrtnike</title>
+    <style>
+        /* --- GLOBALNI STILOVI --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Spriječavanje bježanja stranice lijevo-desno */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            background-color: #050811;
+            color: #f8f9fa;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* --- NAVIGACIJA --- */
+        header {
+            background-color: rgba(5, 8, 17, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            padding: 20px 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            z-index: 1001;
+        }
+
+        .logo span {
+            color: #0066ff;
+        }
+
+        /* Hamburger gumb */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1001;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 3px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        /* Mobilni izbornik - fiksiran unutar ekrana i skriven bez širenja stranice */
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 100vh;
+            background-color: #050811;
+            border-left: 1px solid rgba(255,255,255,0.05);
+            padding: 100px 40px;
+            gap: 30px;
+            z-index: 1000;
+            /* Ključni popravak: transformacija umjesto right parametra */
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Kada je izbornik aktiviran, klizi unutra */
+        .nav-links.active {
+            transform: translateX(0);
+        }
+
+        header a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        header a:hover {
+            color: #fff;
+        }
+
+        /* Animacija hamburgera u X */
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* --- HERO SEKCIJA --- */
+        .hero {
+            padding: 160px 0 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: rgba(0, 102, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(150px);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: #0066ff;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background-color: #0066ff;
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
+        }
+
+        /* --- PAKET USLUGA --- */
+        .features-section {
+            padding: 80px 0;
+            background-color: rgba(255,255,255,0.01);
+            border-top: 1px solid rgba(255,255,255,0.02);
+        }
+
+        .sec-title {
+            font-size: 28px;
+            margin-bottom: 50px;
+            font-weight: 800;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .sec-title span {
+            color: #0066ff;
+        }
+
         .grid-3 {
             display: grid;
             grid-template-columns: 1fr;
