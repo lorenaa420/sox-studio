@@ -4,94 +4,675 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sox Studio | Izrada Web Stranica</title>
-    <style>
-        /* --- CSS VARIJABLE --- */
-        :root {
-            --primary: #0066ff;
-            --bg-body: #050811;
-            --bg-section: #0a0f1a;
-            --card-bg: rgba(255, 255, 255, 0.02);
-            --text-white: #ffffff;
-            --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.06);
-        }
+ <style>
 
-        /* --- GLOBALNI STILOVI --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
-        html, body { height: 100%; }
-        body { background-color: var(--bg-body); color: var(--text-white); display: flex; flex-direction: column; }
-        .content-wrapper { flex: 1 0 auto; }
-        .container { width: 90%; max-width: 1100px; margin: 0 auto; }
+/* --- MODERNA AI / SAAS PALETA --- */
+:root {
+    --primary: #3B82F6;
+    --primary-hover: #60A5FA;
+    --primary-dark: #2563EB;
 
-        /* --- HEADER I NAVIGACIJA --- */
-        header { padding: 20px 0; background: rgba(5, 8, 17, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); }
-        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; position: relative; }
-        .logo { font-size: 22px; font-weight: 900; text-transform: uppercase; }
-        .logo span { color: var(--primary); }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { color: var(--text-white); text-decoration: none; font-weight: 600; }
+    --bg-body: #020617;
+    --bg-section: #071426;
 
-        /* HAMBURGER STIL */
-        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 6px; z-index: 1001; }
-        .menu-toggle span { width: 30px; height: 3px; background: white; transition: 0.4s; border-radius: 2px; }
-        .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-        .menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    --card-bg: rgba(15, 23, 42, 0.75);
 
-        /* RESPONSIVE NAVIGACIJA */
-        @media (max-width: 768px) {
-            .menu-toggle { display: flex; }
-            .nav-links { 
-                display: none; 
-                position: fixed; 
-                top: 0; 
-                left: 0; 
-                width: 100%; 
-                height: 100vh; 
-                background: var(--bg-body); 
-                flex-direction: column; 
-                justify-content: center; 
-                align-items: center; 
-                gap: 50px; 
-                z-index: 999; 
-            }
-            .nav-links a { 
-                font-size: 28px; 
-                padding: 15px 30px;
-                display: block;
-            }
-            .nav-links.active { display: flex; }
-        }
+    --text-white: #F8FAFC;
+    --text-muted: #94A3B8;
 
-        /* --- SEKCIJE I KOMPONENTE --- */
-        section { padding: 80px 0; border-bottom: 1px solid var(--border-color); text-align: center; }
-        .hero { min-height: 80vh; display: flex; align-items: center; justify-content: center; flex-direction: column; }
-        .sec-title { font-size: 42px; margin-bottom: 40px; }
-        .sec-title span { color: var(--primary); }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .feat-card { background: var(--card-bg); padding: 30px; border-radius: 16px; border: 1px solid var(--border-color); }
-        .portfolio-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
-        .project-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden; position: relative; }
-        .project-image { width: 100%; height: 250px; background-size: cover; background-position: center; background-color: #1a1f2e; }
-        .project-body { padding: 25px; }
-        .badge { position: absolute; top: 15px; right: 15px; background: var(--primary); color: white; padding: 5px 12px; font-size: 11px; font-weight: 800; border-radius: 20px; z-index: 10; }
-        .price-list { list-style: none; color: var(--text-muted); margin: 20px 0; text-align: left; }
-        .price-list li { margin-bottom: 8px; }
-        
-        /* --- GUMBI --- */
-        .btn-main { display: inline-block; background-color: var(--primary); color: #fff; padding: 16px 35px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: 0.3s; box-shadow: 0 0 15px rgba(0, 102, 255, 0.4); }
-        .btn-main:hover { background-color: #007bff; box-shadow: 0 0 25px rgba(0, 102, 255, 0.7); transform: translateY(-2px); }
+    --border-color: rgba(148, 163, 184, 0.16);
 
-        /* --- RESPONSIVE GRID --- */
-        @media (min-width: 992px) {
-            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-            .project-featured { grid-column: span 2; display: flex; align-items: center; }
-            .project-featured .project-image { width: 50%; height: 100%; min-height: 350px; }
-        }
+    --glow: rgba(59, 130, 246, .35);
+}
 
-        /* --- FOOTER --- */
-        .actual-footer { background: #000000; padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 14px; }
-    </style>
+
+/* --- GLOBALNO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    color: var(--text-white);
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+    180deg,
+    #0B1F3A 0%,
+    #020617 35%,
+    #020617 100%
+        );
+
+    background-attachment: fixed;
+}
+
+
+.content-wrapper {
+    flex: 1 0 auto;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+
+/* --- HEADER --- */
+header {
+
+    padding: 25px 0;
+
+    background:
+        rgba(2,6,30,.75);
+
+    backdrop-filter: blur(16px);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    border-bottom:
+        1px solid var(--border-color);
+}
+
+
+.nav-wrapper {
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+
+.logo {
+
+    font-size:30px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+
+}
+
+
+.logo span {
+
+    color:var(--primary);
+
+}
+
+
+.nav-links {
+
+    display:flex;
+    gap:30px;
+
+}
+
+
+.nav-links a {
+    font-size:18px;
+    color:var(--text-white);
+    text-decoration:none;
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+
+.nav-links a:hover {
+
+    color:var(--primary-hover);
+
+}
+
+
+
+/* --- HAMBURGER --- */
+
+.menu-toggle {
+
+    display:none;
+    flex-direction:column;
+    cursor:pointer;
+    gap:6px;
+    z-index:1001;
+
+}
+
+
+.menu-toggle span {
+
+    width:30px;
+    height:3px;
+
+    background:white;
+
+    border-radius:5px;
+
+    transition:.3s;
+
+}
+
+
+.menu-toggle.active span:nth-child(1) {
+
+    transform:
+    translateY(9px)
+    rotate(45deg);
+
+}
+
+
+.menu-toggle.active span:nth-child(2) {
+
+    opacity:0;
+
+}
+
+
+.menu-toggle.active span:nth-child(3) {
+
+    transform:
+    translateY(-9px)
+    rotate(-45deg);
+
+}
+
+
+
+/* --- MOBILNI MENI --- */
+
+@media(max-width:768px){
+
+    .menu-toggle{
+
+        display:flex;
+
+    }
+
+
+    .nav-links{
+
+        display:none;
+
+        position:fixed;
+
+        inset:0;
+
+        width:100%;
+        height:100vh;
+
+        background:#020617;
+
+        flex-direction:column;
+
+        justify-content:center;
+
+        align-items:center;
+
+        gap:45px;
+
+    }
+
+
+    .nav-links a{
+
+        font-size:30px;
+
+    }
+
+
+    .nav-links.active{
+
+        display:flex;
+
+    }
+
+}
+
+
+
+/* --- SEKCIJE --- */
+
+section {
+
+    padding:150px 0;
+
+    border-bottom:
+    1px solid var(--border-color);
+
+    text-align:center;
+
+}
+
+
+.hero {
+
+    min-height:99vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    border-bottom:
+    1px solid var(--border-color);
+
+    padding:0;
+
+}
+
+
+.hero .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.hero h1 {
+    max-width: 1300px;
+
+    font-size: clamp(60px, 8vw, 90px);
+
+    line-height: .95;
+    font-weight: 900;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 0px;
+
+    color: #ffffff;
+}
+
+
+.hero h1 span {
+    background: linear-gradient(
+        90deg,
+        #3B82F6,
+        #60A5FA
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.hero p {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: var(--text-muted);
+
+    font-size: 21px;
+    line-height: 5;
+
+    text-align: center;
+}
+
+/* --- NASLOVI --- */
+
+.sec-title {
+
+    font-size:42px;
+
+    margin-bottom:45px;
+
+}
+
+
+.sec-title span {
+
+    color:var(--primary);
+
+}
+
+
+
+/* --- GRID --- */
+
+.grid-3 {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+
+}
+
+
+
+/* --- KARTICE --- */
+
+.feat-card,
+.project-card {
+
+    background:
+    var(--card-bg);
+
+    border:
+    1px solid var(--border-color);
+
+    backdrop-filter:
+    blur(15px);
+
+    box-shadow:
+
+        inset 0 1px 0 rgba(255,255,255,.05),
+
+        0 20px 50px rgba(0,0,0,.25);
+
+
+    transition:
+    .35s ease;
+
+}
+
+
+.feat-card {
+
+    padding:35px;
+
+    border-radius:20px;
+
+}
+
+
+.feat-card:hover,
+.project-card:hover {
+
+    transform:
+    translateY(-8px);
+
+    border-color:
+    rgba(96,165,250,.45);
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.35),
+
+        0 0 30px rgba(59,130,246,.15);
+
+}
+
+
+
+/* --- PORTFOLIO --- */
+
+.portfolio-grid {
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:35px;
+
+}
+
+
+.project-card {
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+
+.project-image {
+
+    width:100%;
+
+    height:260px;
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-color:#111827;
+
+}
+
+
+.project-body {
+
+    padding:30px;
+
+}
+
+
+
+.badge {
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-hover)
+    );
+
+    color:white;
+
+    padding:6px 14px;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    border-radius:30px;
+
+}
+
+
+
+.price-list {
+
+    list-style:none;
+
+    color:var(--text-muted);
+
+    margin:25px 0;
+
+    text-align:left;
+
+}
+
+
+.price-list li {
+
+    margin-bottom:10px;
+
+}
+
+
+
+/* --- GUMB --- */
+
+.btn-main {
+
+    display:inline-block;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+
+    color:white;
+
+    padding:17px 40px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:800;
+
+    transition:.3s;
+
+    box-shadow:
+
+    0 1px 30px var(--glow);
+
+}
+
+
+.btn-main:hover {
+
+    background:
+
+    linear-gradient(
+        135deg,
+        var(--primary-hover),
+        var(--primary)
+    );
+
+
+    transform:
+
+    translateY(-1px);
+
+
+    box-shadow:
+
+    0 2px 50px rgba(59,130,246,.55);
+
+}
+
+
+
+/* --- ANIMACIJA --- */
+
+.feat-card,
+.project-card {
+
+    animation:
+
+    fadeUp .7s ease both;
+
+}
+
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity:0;
+
+        transform:
+        translateY(25px);
+
+    }
+
+    to {
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+
+
+
+/* --- DESKTOP PORTFOLIO --- */
+
+@media(min-width:992px){
+
+
+    .portfolio-grid {
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+
+    .project-featured {
+
+        grid-column:
+        span 2;
+
+        display:flex;
+
+        align-items:center;
+
+    }
+
+
+    .project-featured .project-image {
+
+        width:50%;
+
+        height:100%;
+
+        min-height:380px;
+
+    }
+
+}
+
+
+
+/* --- FOOTER --- */
+
+.actual-footer {
+
+    background:#000814;
+
+    padding:20px 0;
+
+    text-align:center;
+
+    color:var(--text-muted);
+
+    font-size:14px;
+
+}
+
+</style>
 </head>
 <body>
 
@@ -114,15 +695,22 @@
         </header>
 
         <!-- HERO SEKCIJA -->
-        <section class="hero">
-            <div class="container">
-                <h1 style="font-size: 55px; margin-bottom: 20px;">Izrada Web Stranica Koje <br><span>Donose Klijente</span></h1>
-                <p style="font-size: 18px; color: var(--text-muted); margin-bottom: 25px;">
-                    Moderna, brza i responzivna rješenja za vaš obrt.
-                </p>
-                <a href="#kontakt" class="btn-main">Pošalji Upit</a>
-            </div>
-        </section>
+<section class="hero">
+    <div class="container">
+        <h1>
+            Izrada Web Stranica Koje <br>
+            <span>Donose Klijente</span>
+        </h1>
+
+        <p>
+            Moderna, brza i responzivna rješenja za vaš obrt.
+        </p>
+
+        <a href="#kontakt" class="btn-main">
+            Pošalji Upit
+        </a>
+    </div>
+</section>
 
         <!-- USLUGE SEKCIJA -->
         <section id="usluge" class="features-section">
