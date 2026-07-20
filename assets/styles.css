@@ -1,4 +1,4 @@
-/* Sox Studio — shared, mobile-first styles (Popravljena mobilna navigacija i uvećana slova) */
+/* Sox Studio — shared, mobile-first styles (Fiksiran problem s prozirnošću kod skrolanja) */
 :root {
   --bg: #07101f;
   --surface: #0c1729;
@@ -61,17 +61,16 @@ h4 { font-size: 1.18rem; }
 .gradient-text { background: linear-gradient(100deg, #a6c2ff 5%, #5e98ff 45%, #53dfc2); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .muted { color: var(--muted); }
 
-/* Header & Mobile Navigation Fix */
+/* Header & Mobile Navigation Fix (Uklonjena prozirnost kod skrolanja) */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 30;
   border-bottom: 1px solid var(--line);
-  background: #07101f; /* Fiksna, neprozirna pozadina umjesto polovičnih transparencija */
+  background: #07101f;
 }
 .site-header.is-scrolled { 
-  background: rgba(7, 16, 31, 0.98); 
-  backdrop-filter: blur(12px);
+  background: #07101f; /* Čvrsta pozadina i kod skrolanja da spriječi stapanje boja */
 }
 .nav { display: flex; min-height: 74px; align-items: center; justify-content: space-between; }
 .logo { display: inline-flex; align-items: center; color: #fff; font-size: 1.2rem; font-weight: 850; letter-spacing: -.04em; text-decoration: none; }
@@ -82,7 +81,7 @@ h4 { font-size: 1.18rem; }
 .menu-button[aria-expanded="true"] .menu-icon { display: none; }
 .menu-button[aria-expanded="true"] .close-icon { display: block; }
 
-/* Ispravljen mobilni meni (preko cijelog ekrana, potpuno čvrsta i ujednačena pozadina) */
+/* Mobilni meni */
 .nav-links { 
   position: fixed; 
   inset: 0; 
@@ -95,7 +94,7 @@ h4 { font-size: 1.18rem; }
   justify-content: center; 
   gap: 16px; 
   opacity: 0; 
-  background: #07101f; /* Potpuno čvrsta boja koja rješava mrlje i pola-prozirnost */
+  background: #07101f; 
   transition: opacity .22s ease, visibility .22s ease; 
 }
 .nav-links[data-open="true"] { visibility: visible; opacity: 1; }
