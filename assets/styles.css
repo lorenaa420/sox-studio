@@ -166,24 +166,43 @@ h4 { font-size: 1.18rem; }
 /* Project cards */
 .projects { display: grid; gap: 20px; }
 .project-card { position: relative; overflow: hidden; }
-.project-thumb { position: relative; min-height: 230px; overflow: hidden; padding: 20px; }
-.project-thumb::after { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(1, 7, 18, .3)); content: ""; }
+
+/* Glavni omotač slike sada ima fiksnu visinu i nema unutrašnjih margina */
+.project-thumb { 
+  position: relative; 
+  height: 230px; 
+  overflow: hidden; 
+  padding: 0; 
+}
+
+/* Opcionalni gradijent na dnu slike za ljepši prijelaz prema tekstu */
+.project-thumb::after { 
+  position: absolute; 
+  inset: 0; 
+  background: linear-gradient(180deg, transparent 55%, rgba(1, 7, 18, .3)); 
+  content: ""; 
+  pointer-events: none;
+  z-index: 2;
+}
+
 .project-thumb--roletar { background: linear-gradient(135deg, #f9eee1 0 52%, #a76d37 52% 60%, #d2b28d 60%); }
 .project-thumb--volt { background: linear-gradient(135deg, #0b1128, #123362 55%, #1b917f); }
 .project-thumb--kvadrat { background: linear-gradient(135deg, #d5d8da, #9da5a8 48%, #494e55 48%); }
 .project-thumb--beauty { background: linear-gradient(135deg, #f9e3e8, #dbafbf 55%, #a16f80); }
-.mini-site { position: relative; z-index: 1; width: 86%; height: 170px; margin: 14px auto 0; overflow: hidden; border-radius: 8px 8px 0 0; box-shadow: 0 15px 25px rgba(0,0,0,.22); }
-.mini-site__top { height: 19px; background: rgba(255,255,255,.9); }
-.mini-site__body { height: 151px; padding: 19px 15px; }
-.mini-site--roletar .mini-site__body { color: #fff; background: #263642; }
-.mini-site--volt .mini-site__body { color: #fff; background: #132442; }
-.mini-site--kvadrat .mini-site__body { color: #fff; background: #2d3438; }
-.mini-site--beauty .mini-site__body { color: #573d47; background: #fff6f7; }
-.mini-kicker { opacity: .72; font-size: .4rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-.mini-title { max-width: 75%; margin-top: 9px; font-size: .95rem; font-weight: 830; line-height: 1.05; }
-.mini-rule { width: 52%; height: 5px; margin-top: 11px; border-radius: 4px; background: currentColor; opacity: .28; }
-.mini-button { width: 39px; height: 11px; margin-top: 13px; border-radius: 3px; background: #62a2ff; }
-.mini-site--beauty .mini-button { background: #bd768e; }
+
+/* Slika sada pokriva 100% širine i visine unutar .project-thumb */
+.mini-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: top center; 
+  display: block;
+  z-index: 1;
+}
+
 .project-info { padding: 26px; }
 .project-meta { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; color: var(--blue-light); font-size: .84rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
 .status { display: inline-flex; align-items: center; gap: 6px; color: #b5f6e9; }
