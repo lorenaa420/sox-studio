@@ -324,6 +324,26 @@ h4 { font-size: 1.18rem; }
   gap: 35px;
 }
 
+/* Naglašeni naslovi u footeru */
+.footer-title {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.footer-title::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--blue-light);
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
 /* Razmak, veći font i vertikalni raspored za linkove u footeru na mobitelu */
 .footer-links {
   display: flex;
@@ -334,6 +354,13 @@ h4 { font-size: 1.18rem; }
 .footer-links a {
   font-size: 1.1rem; 
   padding: 4px 0; 
+  text-decoration: none;
+  color: var(--muted);
+  transition: color .2s;
+}
+
+.footer-links a:hover {
+  color: #fff;
 }
 
 .footer-bottom { 
