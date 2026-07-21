@@ -322,14 +322,14 @@ h4 { font-size: 1.18rem; }
 .pin svg { width: 22px; height: 22px; }
 
 /* Footer */
-.site-footer { padding: 55px 0 28px; border-top: 1px solid var(--line); background: #040a14; }
+.site-footer { padding: 40px 0; border-top: 1px solid var(--line); background: #040a14; }
 .footer-grid { display: grid; gap: 35px; }
 .footer-title { margin-bottom: 14px; color: #e8eefb; font-size: .94rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
 .footer-copy { max-width: 300px; margin: 14px 0 0; color: var(--muted); font-size: .98rem; }
 .footer-links { display: grid; gap: 10px; }
 .footer-links a { color: var(--muted); font-size: .98rem; text-decoration: none; }
 .footer-links a:hover { color: #fff; }
-.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); color: #72819a; font-size: .88rem; }
+.footer-bottom { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--line); color: #72819a; font-size: .88rem; }
 
 /* Reveal animation */
 [data-reveal] { opacity: 0; transform: translateY(15px); transition: opacity .5s ease, transform .5s ease; }
