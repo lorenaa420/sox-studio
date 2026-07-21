@@ -70,7 +70,7 @@ h4 { font-size: 1.18rem; }
   background: #07101f;
 }
 .site-header.is-scrolled { 
-  background: #07101f; /* Čvrsta pozadina i kod skrolanja da spriječi stapanje boja */
+  background: #07101f; 
 }
 .nav { display: flex; min-height: 74px; align-items: center; justify-content: space-between; }
 .logo { display: inline-flex; align-items: center; color: #fff; font-size: 1.2rem; font-weight: 850; letter-spacing: -.04em; text-decoration: none; }
@@ -167,7 +167,6 @@ h4 { font-size: 1.18rem; }
 .projects { display: grid; gap: 20px; }
 .project-card { position: relative; overflow: hidden; }
 
-/* Glavni omotač slike sada ima fiksnu visinu i nema unutrašnjih margina */
 .project-thumb { 
   position: relative; 
   height: 230px; 
@@ -175,7 +174,6 @@ h4 { font-size: 1.18rem; }
   padding: 0; 
 }
 
-/* Opcionalni gradijent na dnu slike za ljepši prijelaz prema tekstu */
 .project-thumb::after { 
   position: absolute; 
   inset: 0; 
@@ -190,7 +188,6 @@ h4 { font-size: 1.18rem; }
 .project-thumb--kvadrat { background: linear-gradient(135deg, #d5d8da, #9da5a8 48%, #494e55 48%); }
 .project-thumb--beauty { background: linear-gradient(135deg, #f9e3e8, #dbafbf 55%, #a16f80); }
 
-/* Slika sada pokriva 100% širine i visine unutar .project-thumb */
 .mini-image {
   position: absolute;
   top: 0;
@@ -326,6 +323,19 @@ h4 { font-size: 1.18rem; }
   display: grid;
   gap: 35px;
 }
+
+/* Razmak, veći font i vertikalni raspored za linkove u footeru na mobitelu */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+}
+
+.footer-links a {
+  font-size: 1.1rem; 
+  padding: 4px 0; 
+}
+
 .footer-bottom { 
   text-align: center; 
   margin-top: 30px; 
