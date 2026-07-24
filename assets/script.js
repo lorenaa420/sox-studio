@@ -48,18 +48,34 @@ document.querySelectorAll('[data-filter]').forEach((button) => {
   });
 });
 
+/* --- NOVI KOD ZA KONTAKT FORMU (FormSubmit) --- */
 const contactForm = document.querySelector('[data-contact-form]');
+
 contactForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const data = new FormData(contactForm);
-  const name = data.get('name') || '';
-  const email = data.get('email') || '';
-  const business = data.get('business') || '';
-  const service = data.get('service') || '';
-  const message = data.get('message') || '';
-  const subject = encodeURIComponent(`Upit za web — ${business || name}`);
-  const body = encodeURIComponent(`Ime i prezime: ${name}\nE-mail: ${email}\nObrt/tvrtka: ${business}\nZanima me: ${service}\n\nPoruka:\n${message}`);
+  event.preventDefault(); // Zaustavlja osvježavanje stranice
+
   const feedback = contactForm.querySelector('.form-message');
-  if (feedback) feedback.textContent = 'Otvaramo vaš e-mail program s pripremljenom porukom…';
-  window.location.href = `mailto:sox.contactinfo@gmail.com?subject=${subject}&body=${body}`;
+  if (feedback) {
+    feedback.textContent = 'Slanje upita u tijeku...';
+  }
+
+  // Šalje podatke iz forme u pozadini bez mailto: naredbe
+  fetch(contactForm.action, {
+    method: 'POST',
+    body: new FormData(contactForm),
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      if (feedback) feedback.textContent = 'Upit je uspješno poslan! Javit ćemo vam se ubrzo.';
+      contactForm.reset(); // Prazni polja nakon uspješnog slanja
+    } else {
+      if (feedback) feedback.textContent = 'Došlo je do pogreške. Molimo pokušajte ponovno.';
+    }
+  })
+  .catch(error => {
+    if (feedback) feedback.textContent = 'Greška s mrežom. Provjerite internetsku vezu.';
+  });
 });
