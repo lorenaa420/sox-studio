@@ -54,7 +54,7 @@
         </div>
         <p class="eyebrow">Kontakt</p>
         <h1>Recite nam što želite <span class="gradient-text">izgraditi.</span></h1>
-        <p class="lead">Kratko opišite svoj posao i cilj stranice. Odgovorit ćemo s konkretnim sljedećim korakom — bez obveze.</p>
+        <p class="lead">Kratko opišite svoj posao i odaberite paket koji vam odgovara. Odgovorit ćemo u najkraćem roku — bez obveze.</p>
       </div>
     </section>
 
@@ -64,7 +64,7 @@
           <article class="contact-card">
             <p class="eyebrow">Izravno i jednostavno</p>
             <h3>Razgovarajmo o vašem webu.</h3>
-            <p>Nema stručnog žargona i nema potrebe da već sve znate. Dovoljno je da nam kažete čime se bavite i što želite poboljšati.</p>
+            <p>Nema stručnog žargona i nema potrebe da već sve znate. Dovoljno je da nam kažete čime se bavite i koji paket najbolje odgovara vašim potrebama.</p>
             <div class="contact-lines">
               <a class="contact-line" href="mailto:sox.contactinfo@gmail.com">
                 <span class="icon-box">
@@ -109,9 +109,15 @@
           </div>
         </div>
 
-        <form class="form-card" data-contact-form data-reveal>
+        <!-- Forma prilagođena za FormSubmit i nove pakete -->
+        <form class="form-card" action="https://formsubmit.co/sox.contactinfo@gmail.com" method="POST" data-contact-form data-reveal>
+          <!-- FormSubmit postavke -->
+          <input type="hidden" name="_subject" value="Novi upit sa Sox Studio web stranice!">
+          <input type="hidden" name="_captcha" value="false">
+
           <h2>Pošaljite upit</h2>
-          <p>Ispunite nekoliko osnovnih podataka. Klik na slanje otvorit će vaš e-mail s već pripremljenom porukom.</p>
+          <p>Ispunite podatke u nastavku i odaberite željeni paket. Odgovorit ćemo vam ubrzo.</p>
+          
           <div class="form-grid form-grid--two">
             <div class="field">
               <label for="name">Ime i prezime *</label>
@@ -122,30 +128,35 @@
               <input id="email" name="email" type="email" autocomplete="email" placeholder="vas@email.hr" required>
             </div>
           </div>
+
           <div class="form-grid form-grid--two" style="margin-top:15px;">
             <div class="field">
               <label for="business">Naziv obrta / tvrtke</label>
               <input id="business" name="business" type="text" autocomplete="organization" placeholder="Naziv poslovanja">
             </div>
             <div class="field">
-              <label for="service">Što vas zanima?</label>
-              <select id="service" name="service">
-                <option value="Nova web stranica">Nova web stranica</option>
-                <option value="Web s više podstranica">Web s više podstranica</option>
-                <option value="Redizajn postojeće stranice">Redizajn postojeće stranice</option>
-                <option value="Nisam siguran/na">Nisam siguran/na</option>
+              <label for="service">Odaberite paket *</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Izaberite željeni paket...</option>
+                <option value="WEB START (350 €)">WEB START — 350 € (One-page)</option>
+                <option value="WEB STANDARD (500 €) - Najčešći izbor">WEB STANDARD — 500 € (Do 5 podstranica) [Najčešći izbor]</option>
+                <option value="WEB PREMIUM (800 €)">WEB PREMIUM — 800 € (Do 10 podstranica)</option>
+                <option value="Nisam siguran/na - Trebam konzultacije">Nisam siguran/na (Trebam preporuku)</option>
               </select>
             </div>
           </div>
+
           <div class="field" style="margin-top:15px;">
             <label for="message">Recite nam ukratko o projektu *</label>
             <textarea id="message" name="message" placeholder="Čime se bavite i što biste voljeli da nova stranica postigne?" required></textarea>
           </div>
-          <button class="button button--primary" type="submit">Pripremi e-mail upit 
+
+          <button class="button button--primary" type="submit">Pošalji upit 
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M4 5h16v14H4zM4 7l8 6 8-6"/>
             </svg>
           </button>
+          
           <p class="form-message" aria-live="polite"></p>
         </form>
       </div>
@@ -156,7 +167,7 @@
         <div data-reveal>
           <p class="eyebrow">Kako izgleda prvi korak</p>
           <h2>Kratka poruka je <span class="gradient-text">dovoljna za početak.</span></h2>
-          <p class="lead">Nakon što se javite, proći ćemo kroz vašu situaciju i predložiti veličinu projekta koja za vas ima smisla.</p>
+          <p class="lead">Nakon što se javite, proći ćemo kroz vašu situaciju i potvrditi odabrani paket ili predložiti najbolje rješenje.</p>
         </div>
         <div class="content-panel" data-reveal>
           <ol class="check-list" style="counter-reset:contact-step;">
@@ -164,19 +175,19 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M20 6 9 17l-5-5"/>
               </svg>
-              Pošaljete upit s nekoliko informacija o poslu.
+              Pošaljete upit s odabranim paketom i informacijama.
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M20 6 9 17l-5-5"/>
               </svg>
-              Dogovorimo kratki razgovor i razjasnimo ciljeve.
+              Dogovorimo detalje i potvrdimo opseg posla.
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M20 6 9 17l-5-5"/>
               </svg>
-              Dobijete prijedlog opsega i transparentnu cijenu.
+              Krećemo s izradom vaše nove web stranice!
             </li>
           </ol>
         </div>
@@ -213,7 +224,7 @@
     </div>
   </footer>
 
-<script src="assets/script.js"></script>
+  <script src="assets/script.js"></script>
 
   <!-- Schema.org strukturirani podaci za kontakt stranicu -->
   <script type="application/ld+json">
@@ -232,7 +243,5 @@
     }
   }
   </script>
-</body>
-</html>
 </body>
 </html>
